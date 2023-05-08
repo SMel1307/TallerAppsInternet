@@ -1,5 +1,10 @@
-metodologias tradicionales
+*******MELISSA LUCERO TANTACALLE SANCHEZ*******
+-METOLOGIAS TRADICIONALES
+Cascada
+Prototipado
 Espiral
+Incremental
+Diseño rápido de aplicaciones (RAD)
 
 ========ROYER ACUÑA=========
 *Metodologias Agiles
