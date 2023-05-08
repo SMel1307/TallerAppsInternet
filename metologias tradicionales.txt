@@ -8,4 +8,10 @@ Diseño rápido de aplicaciones (RAD)
 
 ========ROYER ACUÑA=========
 *Metodologias Agiles
+Método Scrum.
+Método Lean.
+Extreme Programming XP.
+Método Kanban.
+Agile Inception.
+Design Sprint.
 c:
