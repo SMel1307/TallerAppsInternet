@@ -1,0 +1,81 @@
+<!--formularios-->>
+<form #formUsuario="ngForm" (ngSubmit)="registrar()" action="">
+  <div class="input-group">
+    <label for="">
+      Usuario</label>
+      <input name = "correo" type="text" required #correo="ngModel" [(ngModel)] = "usuario.correo">
+    <p>validacion: {{correo.valid}}</p>
+    <p *ngIf="!correo.valid">
+      <span style="color:red">Porfavor ingrese su correo</span>
+    </p>
+  </div>
+  <div class="input-group">
+    <label for="">
+      Contrasena</label>
+      <input name = "contrasena" type="text" required #contrasena="ngModel" [(ngModel)] = "usuario.contrasena">
+    <p>validacion: {{contrasena.valid}}</p>
+    <p *ngIf="!contrasena.valid">
+      <span style="color:red">Porfavor ingrese su contrasena</span>
+    </p>
+  </div>
+  <button [disabled]="formUsuario.invalid" type="submit">Ingresar</button>
+</form>
+<!--NG  MODEL-->
+<h1>NG MODEL</h1>
+{{persona.nombre}}
+<br>
+<input type="text" required #nombreInput="ngModel" [(ngModel)] = "persona.nombre">
+<p>validacion: {{nombreInput.valid}}</p>
+<p *ngIf="!nombreInput.valid">
+  <span style="color:red;">Por Favor Ingrese los datos del campo Nombre</span>
+</p>
+<br>
+<input type="text" required #edadInput="ngModel" [(ngModel)] = "persona.edad">
+<p>validacion: {{edadInput.valid}}</p>
+<p *ngIf="!edadInput.valid">
+  <span style="color:red;">Por Favor Ingrese los datos del campo edad</span>
+</p>
+<br>
+<p *ngIf="persona.nombre ==='David'">Hola, Soy David</p>
+<input type="text" required #nombreInput="ngModel" [(ngModel)] = "nuevoNombre">
+<br>
+<button (click)="agregarPersona()">Agregar Persona</button>
+<br>
+<ul>
+  <li *ngIf="listaNombres.length === 0 " style="color: red">No existe mas nombres</li>
+  <li *ngFor="let nom of listaNombres; index as i">
+    {{i}}{{nom}}
+    <button (click)="eliminarPersona(i)">Eliminar</button></li>
+<li *ngFor="let producto of productos">
+{{producto.nombre}} - {{producto.precio}}
+</li>
+  </ul>
+<!--NG SWITCH-->
+<div [ngSwitch]="persona.nombre">
+  <p *ngSwitchCase="'andres'">Hola, Soy Andres</p>
+  <p *ngSwitchCase="'mario'">Hola, Soy Mario</p>
+  <p *ngSwitchDefault="'andres'">Hola,No soy Andres ni Mario</p>
+</div>
+<!--------->
+<h1>Taller de Aplicaciones en Internet</h1>
+<h1>{{3 + 3}}</h1>
+<h3>{{titulo}}</h3>
+<h3>{{nombre}}</h3>
+<h2>{{resultado}}</h2>
+<h1>{{'Taller'.repeat(5) }}</h1>
+
+<button [disabled]="botonDes">Solicitar Archivo</button>
+<br>
+<input type="text" [value]="persona.nombre">
+<br>
+<input type="text" [value]="persona.edad">
+<!--EVENT BINDING-->
+<h1>{{persona.edad}}</h1>
+<button (click)="accionBoton()">Enviar Archivo</button>
+<button (click)="incrementarEdad()">incrementar Edad</button>
+<div class="caja" (scroll)="onScroll($event)">
+  <p> adasda sdas dasda dasd sdasd asdadasd asdasdas  dada sdasd asda sda dasda sdasda sdadasdasda sdasda dasda sdasda sdad asda sdasda sdada sdas dasd asdad sda sdasda sdada sdas dasd asdad sda sdasda sdada sdas dasd asdad
+  </p>
+  </div>
+<h1>{{persona.nombre}}</h1>
+<input type="text" [value]="persona.nombre" (keyup)="cambiarNombre($event)">

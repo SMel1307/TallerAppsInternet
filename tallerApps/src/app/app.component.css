@@ -1,0 +1,6 @@
+.caja {
+    height: 200px;
+    width: 150px;
+    overflow: auto;
+    background-color: pink;
+} 
