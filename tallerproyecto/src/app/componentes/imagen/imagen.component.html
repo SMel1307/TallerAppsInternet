@@ -1,0 +1,7 @@
+<p>COMPONENTE IMAGEN</p>
+<h2>{{imagen}}</h2>
+<img width="200" (error)="imgError()" [src]="imagen" alt="" *ngIf="imagen"; else notImg>
+<ng-template #notImg>
+    <img width="200" [src]="imagenDefecto" alt="">
+</ng-template>
+
