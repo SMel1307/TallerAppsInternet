@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NoticiaService } from './services/noticia.service';
+import { DigimonServices } from './components/digimon/digimon.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,8 +10,12 @@ import { NoticiaService } from './services/noticia.service';
 })
 export class AppComponent {
   listNoticias: any[] = [];
+ 
+  digimones:any;
+
+ 
   loading = false;
-  constructor(private _noticiaService: NoticiaService){
+  constructor(private _noticiaService: NoticiaService, public digimon:DigimonServices){
 
   }
 
@@ -26,6 +32,15 @@ export class AppComponent {
         this.loading =  false;
       })
     },1000);
-    
   }
+/*ngOnInit(){
+  this.digimones.getDigimon().subscribe(
+    (r) => { this.digimones = r; console.log(r)},
+    (e) => {console.error(e)}
+  )}*/
+ 
+ 
+  
+  
+
 }

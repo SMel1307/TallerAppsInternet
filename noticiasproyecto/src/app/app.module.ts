@@ -8,6 +8,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
+import { DigimonComponent } from './components/digimon/digimon.component';
+import { DigimonServices } from './components/digimon/digimon.service';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,15 @@ import { HttpClientModule} from '@angular/common/http';
     FormularioComponent,
     ListadoNoticiasComponent,
     NavbarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DigimonComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ DigimonServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

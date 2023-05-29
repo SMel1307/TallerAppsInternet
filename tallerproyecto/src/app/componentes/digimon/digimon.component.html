@@ -1,0 +1,11 @@
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div *ngFor="let digimon of digimones" class="col">
+      <div class="card">
+        <img src="{{digimon.img}}" class="card-img-top" alt="...">
+        <div class="card-body">
+         <span class="badge bg-primary mb-1">{{digimon.name}}</span>
+         <h5 class="card-title">{{ digimon.level }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
