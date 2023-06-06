@@ -17,9 +17,10 @@
             padding: 30px;
         }
         #btn-group-encabezado .btn{
-
             width: 180px;
         }
+        ul > li {padding: 0.5rem 1rem;}
+        ul > li:nth-child(odd) { background: #dcf8c6; text-align: right;font-style: italic; font-weight: 600; }
 
      </style>
      <!--HTML-->
@@ -45,11 +46,58 @@
             </tbody>
         </table>
      </div>
+    <!-- <ul class="list-group"></ul>
+                    <form action="">
+                    <input type="text" placeholder="Ingresa mensaje" class="swal2-input" id="box-nombre">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                --> 
+
+                <footer class="bg-light text-center text-lg-start">
+                    <div class="page-content page-container" id="page-content">
+                        <div class="padding">
+                            <div class="row container d-flex justify-content-center">
+                    <div class="col-md-4">
+                                 
+                                  <div class="box box-warning direct-chat direct-chat-warning">
+                                    <div class="box-header with-border">
+                                      <h3 class="box-title">Chat</h3>
+                                      </div>
+                                    </div>
+                                    <div class="box-body">
+                                      <div class="direct-chat-messages">
+                                          <div class="direct-chat-text">
+                                            <ul class="list-group"></ul>
+                                          </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="box-footer">
+                                      <form action="">
+                                        <div class="input-group">
+                                          <input type="text" name="message" placeholder="Ingrese mensaje" class="form-control">
+                                          <span class="input-group-btn">
+                                                <button type="submit" class="btn btn-warning btn-flat">Enviar</button>
+                                              </span>
+                                        </div>
+                                      </form>
+                                    </div>
+                                 
+                                  </div>
+                               
+                                </div>
+                                 </div>
+                                
+                                  </div>
+                                 
+                                </div>
+                          </footer>
+
+
 
      <!--JS-->
      <script>
         let socket = io()
-
         // la base de datos estara eb ek cliente
         if(!localStorage.getItem("jugadores-amigo-secreto")){
             let jugadores = []
@@ -264,6 +312,24 @@ async function editarJugador(i){
                 icon: "success"
             })
             console.log("El correo ha sido enviado exitosamente a: " + para)
+        })
+        /*Chat*/
+        const form = document.querySelector('form')
+            const input = document.querySelector('input')
+            let mensajes = document.querySelector('ul')
+            form.addEventListener('submit',(e)=>{
+            e.preventDefault()
+            if(input.value){
+                socket.emit('chat', input.value)
+                input.value = ''
+            }
+        })
+        socket.on('chat', (msg)=>{
+            let item= document.createElement('li')
+            item.textContent = msg
+            mensajes.appendChild(item)
+            window.scrollto(0, document.body.scrollHeight)
+
         })
      </script>
     
